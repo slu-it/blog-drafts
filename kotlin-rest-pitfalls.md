@@ -8,10 +8,7 @@ Technologies:
 Given a Kotlin data class definition like this:
 
 ```kotlin
-data class SomeRequestBody (
-  @get:NotNull
-  val foo: Float
-)
+data class SomeRequestBody(@get:NotNull val foo: Float)
 ```
 
 When using it to de-serialize a JSON like this: `{ "foo": 1.0 }`. 
@@ -34,8 +31,5 @@ type in order to actually guarantee that no consumer request
 body is missing the required `foo` property:
 
 ```kotlin
-data class SomeRequestBody (
-  @get:NotNull
-  val foo: Float?
-)
+data class SomeRequestBody(@get:NotNull val foo: Float?)
 ```
