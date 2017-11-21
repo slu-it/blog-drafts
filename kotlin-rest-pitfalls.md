@@ -24,10 +24,10 @@ value of `0.0f`. Why is that?
 
 Well, for this to make sense you need to know that Kotlin's 
 `Float` class maps to Java's `float` primitive type and not
-to its object type `Float`. This is why the `@get:NotNull`
-validation does not throw anything. When the JSON is de-
-serialized, the value is never `null`. Instead the primitive
-`float` default of `0.0f` is used.
+to its object type `Float`. When the JSON is de-serialized, 
+the value is never `null`. Instead the primitive `float` 
+default of `0.0f` is used. This is why no validation exception
+is thrown.
 
 Paradoxically you would have to use the nullable `Float?` 
 type in order to actually guarantee that no consumer request
@@ -39,4 +39,3 @@ data class SomeRequestBody (
   val foo: Float?
 )
 ```
-
